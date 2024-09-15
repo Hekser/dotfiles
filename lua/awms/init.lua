@@ -4,3 +4,4 @@ vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
 
 require("awms.remap")
+require("awms.lazy_init")

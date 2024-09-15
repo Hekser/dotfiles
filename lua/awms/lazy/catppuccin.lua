@@ -11,4 +11,3 @@ return {
     vim.o.background = "dark"
   end
 }
-
