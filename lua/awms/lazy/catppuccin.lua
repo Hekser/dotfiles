@@ -10,6 +10,6 @@ return {
       require("catppuccin").setup(opts)
       vim.cmd.colorscheme("catppuccin")
       vim.o.background = "dark"
-    end
-  }
+    end,
+  },
 }
