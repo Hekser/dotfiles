@@ -29,5 +29,5 @@ vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 vim.keymap.set("n", "<leader>vim", "<cmd>e ~/.config/nvim/lua/awms<CR>")
 
 vim.keymap.set("n", "<leader><leader>", function()
-  vim.cmd("so")
+	vim.cmd("source %")
 end)
