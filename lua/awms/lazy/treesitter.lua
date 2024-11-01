@@ -20,6 +20,7 @@ return {
           "sql",
           "toml",
           "markdown",
+          "markdown_inline",
         },
         sync_install = false,
         highlight = {
