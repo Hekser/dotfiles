@@ -27,8 +27,15 @@ return {
       require("telescope").setup({
         defaults = {
           preview = {
-            filesize_limit = 1,
-            -- treesitter = false,
+            filesize_limit = 1, -- limits preview to files smaller than 1MB
+            treesitter = {
+              enable = function(bufnr)
+                -- Get file size in KB
+                local file_size = vim.fn.getfsize(vim.api.nvim_buf_get_name(bufnr)) / 1024
+                -- Return false (disable) if file is larger than 256kB
+                return file_size < 256 -- Adjust this threshold as needed
+              end,
+            },
           },
         },
         extensions = {
