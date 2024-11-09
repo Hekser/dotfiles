@@ -10,7 +10,7 @@ return {
         },
         pickers = {
           find_files = {
-            hidden = true, -- Show hidden files
+            hidden = true, -- Show hidden files -- TODO: not working
           },
         },
       })
