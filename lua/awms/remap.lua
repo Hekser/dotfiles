@@ -1,6 +1,6 @@
 vim.g.mapleader = " "
 
-local default_opts = { noremap = true, silent = true } -- Options for keymaps
+local default_opts = { noremap = false, silent = false } -- Options for keymaps
 
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, default_opts)
 
@@ -56,5 +56,5 @@ vim.keymap.set("n", "<leader>vim", "<cmd>e ~/.config/nvim/lua/awms<CR>", default
 
 -- Source config (only in nvim config)
 vim.keymap.set("n", "<leader><leader>", function()
-  vim.cmd("source %")
+	vim.cmd("source %")
 end, default_opts)

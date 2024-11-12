@@ -25,6 +25,7 @@ return {
 				".eslintrc.json",
 				".eslintrc.yaml",
 				".eslintrc.yml",
+        "eslint.config.js"
 			}
 			if has_config_file(eslint_files) then
 				table.insert(
