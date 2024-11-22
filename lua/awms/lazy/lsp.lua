@@ -87,7 +87,7 @@ return {
         prefix = "●",
       },
       float = {
-        focusable = false,
+        focusable = true,
         style = "minimal",
         border = "rounded",
         source = "always",
