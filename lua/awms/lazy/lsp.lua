@@ -86,6 +86,26 @@ return {
         source = "always",
         prefix = "●",
       },
+      signs = {
+        text = {
+          [vim.diagnostic.severity.ERROR] = "",
+          [vim.diagnostic.severity.WARN] = "",
+          [vim.diagnostic.severity.HINT] = "󰌶",
+          [vim.diagnostic.severity.INFO] = "",
+        },
+        linehl = {
+          [vim.diagnostic.severity.ERROR] = "ErrorMsg",
+          [vim.diagnostic.severity.WARN] = "WarningMsg",
+          [vim.diagnostic.severity.HINT] = "HintMsg",
+          [vim.diagnostic.severity.INFO] = "InfoMsg",
+        },
+        numhl = {
+          [vim.diagnostic.severity.ERROR] = "ErrorMsg",
+          [vim.diagnostic.severity.WARN] = "WarningMsg",
+          [vim.diagnostic.severity.HINT] = "HintMsg",
+          [vim.diagnostic.severity.INFO] = "InfoMsg",
+        },
+      },
       float = {
         focusable = true,
         style = "minimal",
@@ -145,11 +165,5 @@ return {
     vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, {})
     vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, {})
     vim.keymap.set("n", "]d", vim.diagnostic.goto_next, {})
-
-    local symbols = { Error = "", Info = "", Hint = "󰌶", Warn = "" }
-    for type, icon in pairs(symbols) do
-      local hl = "DiagnosticSign" .. type
-      vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-    end
   end,
 }
