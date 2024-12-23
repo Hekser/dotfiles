@@ -18,12 +18,24 @@ return {
             hide_gitignored = false,
             never_show = { ".git" },
           },
+          follow_current_file = {
+            enabled = true,    -- This will find and focus the file in the active buffer every time
+            --               -- the current file is changed while the tree is open.
+            leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
+          },
           hijack_netrw_behavior = "disabled",
           use_libuv_file_watcher = true,
         },
+        buffers = {
+          follow_current_file = {
+            enabled = true,    -- This will find and focus the file in the active buffer every time
+            --              -- the current file is changed while the tree is open.
+            leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
+          },
+        },
         default_component_configs = {
           name = {
-            use_git_status_colors = false, -- Prevent greying out of dotfiles
+            use_git_status_colors = true,
           },
         },
         window = {
@@ -33,6 +45,11 @@ return {
 
       vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal right<CR>")
       vim.keymap.set("n", "<leader>bf", ":Neotree buffers reveal float<CR>", {})
+
+      vim.cmd([[
+        highlight! NeoTreeGitModified guifg=#FFA000
+        highlight! NeoTreeGitUntracked guifg=#00FFA5
+      ]])
     end,
   },
 }
