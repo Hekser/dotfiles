@@ -4,7 +4,9 @@ return {
     requires = "MunifTanjim/nui.nvim",
 
     config = function()
-      require("package-info").setup()
+      require("package-info").setup({
+        hide_up_to_date = true,
+      })
 
       -- Show dependency versions
       vim.keymap.set({ "n" }, "<LEADER>ns", require("package-info").show, { silent = true, noremap = true })
