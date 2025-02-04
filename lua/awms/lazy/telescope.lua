@@ -1,4 +1,22 @@
 return {
+  -- {
+  --   "nvim-telescope/telescope-project.nvim",
+  --   dependencies = {
+  --     "nvim-telescope/telescope.nvim",
+  --   },
+  --   config = function()
+  --     require("telescope").setup({
+  --       extensions = {
+  --         project = {
+  --           base_dirs = {
+  --             { path = "~/Desktop/Code", max_depth = 5 }, -- Look for projects in ~/code, up to 2 levels deep
+  --           },
+  --         },
+  --       },
+  --     })
+  --     vim.keymap.set("n", "<leader>fp", ":Telescope project<CR>", { noremap = true, silent = true })
+  --   end,
+  -- },
   {
     "nvim-telescope/telescope.nvim",
     tag = "0.1.8",
