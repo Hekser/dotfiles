@@ -81,7 +81,7 @@ return {
     vim.diagnostic.config({
       -- update_in_insert = true,
       virtual_text = {
-        source = "always",
+        source = true,
         prefix = "●",
       },
       signs = {
@@ -91,26 +91,24 @@ return {
           [vim.diagnostic.severity.HINT] = "󰌶",
           [vim.diagnostic.severity.INFO] = "",
         },
-        linehl = {
-          [vim.diagnostic.severity.ERROR] = "ErrorMsg",
-          [vim.diagnostic.severity.WARN] = "WarningMsg",
-          [vim.diagnostic.severity.HINT] = "HintMsg",
-          [vim.diagnostic.severity.INFO] = "InfoMsg",
-        },
-        numhl = {
-          [vim.diagnostic.severity.ERROR] = "ErrorMsg",
-          [vim.diagnostic.severity.WARN] = "WarningMsg",
-          [vim.diagnostic.severity.HINT] = "HintMsg",
-          [vim.diagnostic.severity.INFO] = "InfoMsg",
-        },
+        -- linehl = {
+        --   [vim.diagnostic.severity.ERROR] = "ErrorMsg",
+        --   [vim.diagnostic.severity.WARN] = "WarningMsg",
+        --   [vim.diagnostic.severity.HINT] = "HintMsg",
+        --   [vim.diagnostic.severity.INFO] = "InfoMsg",
+        -- },
+        -- numhl = {
+        --   [vim.diagnostic.severity.ERROR] = "ErrorMsg",
+        --   [vim.diagnostic.severity.WARN] = "WarningMsg",
+        --   [vim.diagnostic.severity.HINT] = "HintMsg",
+        --   [vim.diagnostic.severity.INFO] = "InfoMsg",
+        -- },
       },
       float = {
-        focusable = true,
-        style = "minimal",
         border = "rounded",
-        source = "always",
-        header = "",
-        prefix = "",
+        source = true,
+        -- header = "",
+        -- prefix = "",
       },
     })
 
