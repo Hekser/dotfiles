@@ -30,6 +30,7 @@ return {
         "lua_ls",
         "rust_analyzer",
         "html",
+        "tsserver",
       },
       -- automatic_installation = true,
       handlers = {
@@ -51,6 +52,15 @@ return {
                 },
               },
             },
+          })
+        end,
+
+        ["astro"] = function()
+          local lspconfig = require("lspconfig")
+          lspconfig.astro.setup({
+            capabilities = capabilities,
+            filetypes = { "astro", "typescript", "javascript" },
+            root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", ".git"),
           })
         end,
       },
@@ -153,7 +163,8 @@ return {
     vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
     vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
     vim.keymap.set("n", "<leader>gD", vim.lsp.buf.declaration, {})
-    vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
+    -- vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
+    vim.keymap.set("n", "<leader>gr", "<cmd>Telescope lsp_references<CR>", {})
     vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
 
     vim.keymap.set("n", "<leader>gi", vim.lsp.buf.implementation, {})
