@@ -6,6 +6,7 @@ return {
     config = function()
       require("package-info").setup({
         hide_up_to_date = true,
+        package_manager = 'npm'
       })
 
       -- Show dependency versions
