@@ -59,17 +59,17 @@ return {
           -- 	return utils.root_has_file(prettier_files)
           -- end,
           -- Default options that will be overridden by .prettierrc if it exists
-          extra_args = {
-            "--single-quote",
-            -- "--jsx-single-quote",
-            "--trailing-comma",
-            "es5",
-            "--tab-width",
-            "2",
-            -- Add HTML-specific configuration to align with ESLint
-            "--html-whitespace-sensitivity",
-            "strict",
-          },
+          -- extra_args = {
+          --   "--single-quote",
+          --   -- "--jsx-single-quote",
+          --   "--trailing-comma",
+          --   "es5",
+          --   "--tab-width",
+          --   "2",
+          --   -- Add HTML-specific configuration to align with ESLint
+          --   "--html-whitespace-sensitivity",
+          --   "strict",
+          -- },
         })
       )
       if has_config_file(prettier_files) then

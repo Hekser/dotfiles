@@ -30,7 +30,7 @@ return {
         "lua_ls",
         "rust_analyzer",
         "html",
-        "tsserver",
+        "ts_ls",
       },
       -- automatic_installation = true,
       handlers = {
