@@ -56,5 +56,5 @@ vim.keymap.set("n", "<leader>vim", "<cmd>e ~/.config/nvim/lua/awms<CR>", default
 
 -- Source config (only in nvim config)
 vim.keymap.set("n", "<leader><leader>", function()
-	vim.cmd("source %")
+  vim.cmd("source %")
 end, default_opts)

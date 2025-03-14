@@ -1,24 +1,24 @@
 return {
-  -- {
-  --   "stevearc/conform.nvim",
-  --   opts = {},
-  --   config = function()
-  --     require("conform").setup({
-  --       formatters_by_ft = {
-  --         lua = { "stylua" },
-  --         rust = { "rustfmt", lsp_format = "fallback" },
-  --         javascript = { "prettierd", "eslint_d" },
-  --         typescript = { "prettierd", "eslint_d" },
-  --         css = { "prettierd", "eslint_d" },
-  --         scss = { "prettierd", "eslint_d" },
-  --         html = { "prettierd", "eslint_d" },
-  --         json = { "prettierd", "eslint_d" },
-  --         yaml = { "prettierd", "eslint_d" },
-  --         markdown = { "prettierd", "eslint_d" },
-  --       },
-  --     })
-  --
-  --     vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
-  --   end,
-  -- },
+	-- {
+	--   "stevearc/conform.nvim",
+	--   opts = {},
+	--   config = function()
+	--     require("conform").setup({
+	--       formatters_by_ft = {
+	--         lua = { "stylua" },
+	--         rust = { "rustfmt", lsp_format = "fallback" },
+	--         javascript = { "prettierd", "eslint_d" },
+	--         typescript = { "prettierd", "eslint_d" },
+	--         css = { "prettierd", "eslint_d" },
+	--         scss = { "prettierd", "eslint_d" },
+	--         html = { "prettierd", "eslint_d" },
+	--         json = { "prettierd", "eslint_d" },
+	--         yaml = { "prettierd", "eslint_d" },
+	--         markdown = { "prettierd", "eslint_d" },
+	--       },
+	--     })
+	--
+	--     vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
+	--   end,
+	-- },
 }
