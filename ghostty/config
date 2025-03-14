@@ -1,0 +1,39 @@
+# theme = tokyonight
+# theme = Tinacious Design (Dark)
+# theme = Nocturnal Winter
+# theme = Abernathy
+# background-opacity = 0.9
+font-size = 14
+# background-image= ~/Desktop/wallpapers/lucy_sad.jpg
+# background-image-opacity=0.3  # Adjust opacity between 0-1
+# background-opacity = 0.9
+# background-blur-radius = 20
+# macos-titlebar-style = transparent
+unfocused-split-opacity = 0.5
+font-family = "IBM Plex Mono"
+font-feature = -calt
+# macos-icon = official
+macos-icon = xray
+
+palette = 0=#4d4d4d
+palette = 1=#f7768e
+palette = 2=#09cd7e
+palette = 3=#f5f17a
+palette = 4=#bb9af7
+palette = 5=#ff2b6d
+palette = 6=#00b7ff
+palette = 7=#fcfcfc
+palette = 8=#808080
+palette = 9=#f16d86
+palette = 10=#0ae78d
+palette = 11=#fffc67
+palette = 12=#6096ff
+palette = 13=#ff78a2
+palette = 14=#0ae78d
+palette = 15=#ffffff
+# background = #1d1d27
+background = #121212
+foreground = #f5f5f5
+cursor-color = #e6e5e5
+selection-background = #33467c
+selection-foreground = #ffffff

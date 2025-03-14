@@ -1,0 +1,10 @@
+# Ignore everything
+*
+
+# Allow specific directories and their contents
+!ghostty/
+!ghostty/**
+!nvim/
+!nvim/**
+
+!.gitignore
