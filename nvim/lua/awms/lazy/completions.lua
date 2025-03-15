@@ -54,7 +54,9 @@ return {
           },
         },
         documentation = {
-          -- window = { border = "single" },
+          -- window = {
+          --   border = "single",
+          -- },
           auto_show = true,
           auto_show_delay_ms = 200,
         },

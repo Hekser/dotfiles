@@ -112,7 +112,7 @@ return {
 				-- },
 			},
 			float = {
-				border = "rounded",
+				-- border = "rounded",
 				source = true,
 				-- header = "",
 				-- prefix = "",
