@@ -48,11 +48,13 @@ return {
 					},
 				},
 				menu = {
+					border = "single",
 					draw = {
 						treesitter = { "lsp" },
 					},
 				},
 				documentation = {
+					window = { border = "single" },
 					auto_show = true,
 					auto_show_delay_ms = 200,
 				},
@@ -73,7 +75,7 @@ return {
 			--
 			-- See the fuzzy documentation for more information
 			fuzzy = { implementation = "prefer_rust_with_warning" },
-			signature = { enabled = true },
+			signature = { enabled = true, window = { border = "single" } },
 		},
 		opts_extend = { "sources.default" },
 	},
