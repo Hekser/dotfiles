@@ -12,6 +12,7 @@ return {
 				typescriptreact = { "prettier" },
 				svelte = { "prettier" },
 				css = { "prettier" },
+				scss = { "prettier" },
 				html = { "prettier" },
 				json = { "prettier" },
 				yaml = { "prettier" },
@@ -20,6 +21,7 @@ return {
 				liquid = { "prettier" },
 				lua = { "stylua" },
 				python = { "isort", "black" },
+        rust = { "rustfmt" },
 			},
 			format_on_save = {
 				lsp_fallback = true,
