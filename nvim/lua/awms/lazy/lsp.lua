@@ -18,7 +18,7 @@ return {
 		-- 	vim.lsp.protocol.make_client_capabilities(),
 		-- 	cmp_lsp.default_capabilities()
 		-- )
-    local capabilities = require('blink.cmp').get_lsp_capabilities()
+		local capabilities = require("blink.cmp").get_lsp_capabilities()
 
 		require("mason").setup()
 		require("mason-lspconfig").setup({
