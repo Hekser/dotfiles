@@ -24,10 +24,11 @@ return {
 		require("mason-lspconfig").setup({
 			ensure_installed = {
 				"astro",
+				"angularls",
 				"lua_ls",
 				"rust_analyzer",
 				"html",
-				"ts_ls",
+				"vtsls",
 			},
 			-- automatic_installation = true,
 			handlers = {
@@ -52,12 +53,33 @@ return {
 					})
 				end,
 
+				["vtsls"] = function()
+					local lspconfig = require("lspconfig")
+					lspconfig.vtsls.setup({
+						capabilities = capabilities,
+						root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", ".git"),
+						settings = {
+							typescript = {
+								inlayHints = { parameterNames = "all" },
+							},
+						},
+					})
+				end,
+
 				["astro"] = function()
 					local lspconfig = require("lspconfig")
 					lspconfig.astro.setup({
 						capabilities = capabilities,
-						filetypes = { "astro", "typescript", "javascript" },
+						filetypes = { "astro" },
 						root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", ".git"),
+					})
+				end,
+
+				["angularls"] = function()
+					local lspconfig = require("lspconfig")
+					lspconfig.angularls.setup({
+						capabilities = capabilities,
+						root_dir = lspconfig.util.root_pattern("angular.json", "package.json", ".git"),
 					})
 				end,
 			},
