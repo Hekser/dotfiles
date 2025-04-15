@@ -21,6 +21,7 @@ return {
 				liquid = { "prettier" },
 				lua = { "stylua" },
 				rust = { "rustfmt" },
+				toml = { "taplo" },
 			},
 			-- format_on_save = {
 			-- 	lsp_fallback = true,
