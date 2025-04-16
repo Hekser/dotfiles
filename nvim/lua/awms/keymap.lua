@@ -62,3 +62,7 @@ end, default_opts)
 vim.keymap.set("n", "<leader>rp", function()
 	print(vim.fn.expand("%"))
 end, { desc = "Show relative file path" })
+
+-- Insert new line without entering insert mode
+vim.keymap.set("n", "<CR>", "m`o<Esc>``")
+vim.keymap.set("n", "<S-CR>", "m`O<Esc>``")

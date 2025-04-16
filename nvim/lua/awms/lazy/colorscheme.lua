@@ -40,7 +40,7 @@ return {
 		},
 		config = function(_, opts)
 			require("tokyonight").setup(opts)
-			vim.cmd.colorscheme("tokyonight-storm")
+			vim.cmd.colorscheme("tokyonight-night")
 			vim.o.background = "dark"
 		end,
 	},

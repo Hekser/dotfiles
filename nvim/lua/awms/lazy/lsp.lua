@@ -29,6 +29,7 @@ return {
 				"rust_analyzer",
 				"html",
 				"vtsls",
+				"svelte",
 			},
 			-- automatic_installation = true,
 			handlers = {
@@ -70,8 +71,18 @@ return {
 					local lspconfig = require("lspconfig")
 					lspconfig.astro.setup({
 						capabilities = capabilities,
-						filetypes = { "astro" },
+            -- filetypes = { "astro", "typescriptreact" },
+            filetypes = { "astro" },
 						root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", ".git"),
+					})
+				end,
+
+				["svelte"] = function()
+					local lspconfig = require("lspconfig")
+					lspconfig.svelte.setup({
+						capabilities = capabilities,
+						filetypes = { "svelte" },
+						root_dir = lspconfig.util.root_pattern("package.json", "svelte.config.js", ".git"),
 					})
 				end,
 
