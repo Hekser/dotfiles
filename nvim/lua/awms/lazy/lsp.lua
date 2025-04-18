@@ -186,16 +186,15 @@ return {
 			original(_, result, ctx, config)
 		end
 
-		vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-			border = "rounded", -- You can use "single", "double", "rounded", "solid", or "shadow"
-		})
+		-- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+		-- 	border = "rounded", -- You can use "single", "double", "rounded", "solid", or "shadow"
+		-- })
 
 		vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 		vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
 		vim.keymap.set("n", "<leader>gD", vim.lsp.buf.declaration, {})
-		-- vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
-		vim.keymap.set("n", "<leader>gr", "<cmd>Telescope lsp_references<CR>", {})
-		vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
+		vim.keymap.set("n", "<leader>gr", "<cmd>FzfLua lsp_references<CR>", {})
+		vim.keymap.set("n", "<leader>ca",  "<cmd>FzfLua lsp_code_actions<CR>", {})
 
 		vim.keymap.set("n", "<leader>gi", vim.lsp.buf.implementation, {})
 
