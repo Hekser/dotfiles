@@ -22,6 +22,7 @@ return {
 					"markdown",
 					"markdown_inline",
 					"jsdoc",
+					"c_sharp",
 				},
 				sync_install = false,
 				highlight = {
