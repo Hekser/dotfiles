@@ -37,6 +37,8 @@ return {
 				},
 			})
 
+			vim.cmd("FzfLua register_ui_select")
+
 			-- keymaps
 			vim.keymap.set("n", "<leader>ff", fzf.files, {})
 			vim.keymap.set("n", "<leader>fg", fzf.live_grep, {})
