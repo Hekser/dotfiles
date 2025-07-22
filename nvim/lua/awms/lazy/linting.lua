@@ -33,43 +33,43 @@ return {
 			lint.try_lint()
 		end, { desc = "Trigger linting for current file" })
 
-		vim.keymap.set("n", "<leader>lf", function()
-			local file = vim.fn.expand("%:p")
-			vim.cmd("!eslint_d --fix " .. file)
-		end, { desc = "Fix ESLint errors with eslint_d", silent = true })
-
 		-- vim.keymap.set("n", "<leader>lf", function()
 		-- 	local file = vim.fn.expand("%:p")
-		-- 	local uv = vim.loop
-		--
-		-- 	-- Get initial file modification time
-		-- 	local before = uv.fs_stat(file)
-		--
-		-- 	vim.system({ "eslint_d", "--fix", file }, {
-		-- 		text = true,
-		-- 		stdout = function(_)
-		-- 			-- Get mod time after fix
-		-- 			local after = uv.fs_stat(file)
-		-- 			if before and after and before.mtime.sec ~= after.mtime.sec then
-		-- 				vim.schedule(function()
-		-- 					vim.cmd("checktime") -- check if file changed outside
-		-- 					vim.cmd("edit!") -- force reload
-		-- 					vim.notify("ESLint fixed and buffer reloaded", vim.log.levels.INFO)
-		-- 				end)
-		-- 			else
-		-- 				vim.schedule(function()
-		-- 					vim.notify("ESLint fixed (no reload needed)", vim.log.levels.INFO)
-		-- 				end)
-		-- 			end
-		-- 		end,
-		-- 		stderr = function(err)
-		-- 			if err then
-		-- 				vim.schedule(function()
-		-- 					vim.notify("ESLint error:\n" .. err, vim.log.levels.ERROR)
-		-- 				end)
-		-- 			end
-		-- 		end,
-		-- 	})
+		-- 	vim.cmd("!eslint_d --fix " .. file)
 		-- end, { desc = "Fix ESLint errors with eslint_d", silent = true })
+
+		vim.keymap.set("n", "<leader>lf", function()
+			local file = vim.fn.expand("%:p")
+			local uv = vim.loop
+
+			-- Get initial file modification time
+			local before = uv.fs_stat(file)
+
+			vim.system({ "eslint_d", "--fix", file }, {
+				text = true,
+				stdout = function(_)
+					-- Get mod time after fix
+					local after = uv.fs_stat(file)
+					if before and after and before.mtime.sec ~= after.mtime.sec then
+						vim.schedule(function()
+							vim.cmd("checktime") -- check if file changed outside
+							vim.cmd("edit!") -- force reload
+							vim.notify("ESLint fixed and buffer reloaded", vim.log.levels.INFO)
+						end)
+					else
+						vim.schedule(function()
+							vim.notify("ESLint fixed (no reload needed)", vim.log.levels.INFO)
+						end)
+					end
+				end,
+				stderr = function(err)
+					if err then
+						vim.schedule(function()
+							vim.notify("ESLint error:\n" .. err, vim.log.levels.ERROR)
+						end)
+					end
+				end,
+			})
+		end, { desc = "Fix ESLint errors with eslint_d", silent = true })
 	end,
 }
