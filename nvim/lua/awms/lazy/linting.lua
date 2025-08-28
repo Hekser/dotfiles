@@ -15,6 +15,25 @@ return {
 
 		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 
+		local function has_eslint_config()
+			local root = vim.fs.root(0, { "package.json" }) or vim.fn.getcwd()
+
+			local configs = {
+				".eslintrc.js",
+				".eslintrc.cjs",
+				".eslintrc.json",
+				".eslintrc.yml",
+				".eslintrc.yaml",
+				"eslint.config.mjs",
+			}
+			for _, name in ipairs(configs) do
+				if vim.fn.filereadable(root .. "/" .. name) == 1 then
+					return true
+				end
+			end
+			return false
+		end
+
 		vim.api.nvim_create_autocmd({
 			-- "BufEnter",
 			"BufReadPost",
@@ -25,7 +44,9 @@ return {
 		}, {
 			group = lint_augroup,
 			callback = function()
-				lint.try_lint()
+				if has_eslint_config() then
+					lint.try_lint()
+				end
 			end,
 		})
 
