@@ -34,14 +34,13 @@ return {
 			-- automatic_installation = true,
 			handlers = {
 				function(server_name) -- default handler (optional)
-					require("lspconfig")[server_name].setup({
+					vim.lsp.config[server_name].setup({
 						capabilities = capabilities,
 					})
 				end,
 
 				["lua_ls"] = function()
-					local lspconfig = require("lspconfig")
-					lspconfig.lua_ls.setup({
+					vim.lsp.config.lua_ls.setup({
 						capabilities = capabilities,
 						settings = {
 							Lua = {
@@ -53,12 +52,10 @@ return {
 						},
 					})
 				end,
-
 				["vtsls"] = function()
-					local lspconfig = require("lspconfig")
-					lspconfig.vtsls.setup({
+					vim.lsp.config.vtsls.setup({
 						capabilities = capabilities,
-						root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", ".git"),
+						root_dir = vim.lsp.config.util.root_pattern("package.json", "tsconfig.json", ".git"),
 						settings = {
 							typescript = {
 								inlayHints = { parameterNames = "all" },
@@ -68,29 +65,26 @@ return {
 				end,
 
 				["astro"] = function()
-					local lspconfig = require("lspconfig")
-					lspconfig.astro.setup({
+					vim.lsp.config.astro.setup({
 						capabilities = capabilities,
-            -- filetypes = { "astro", "typescriptreact" },
-            filetypes = { "astro" },
-						root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", ".git"),
+						-- filetypes = { "astro", "typescriptreact" },
+						filetypes = { "astro" },
+						root_dir = vim.lsp.config.util.root_pattern("package.json", "tsconfig.json", ".git"),
 					})
 				end,
 
 				["svelte"] = function()
-					local lspconfig = require("lspconfig")
-					lspconfig.svelte.setup({
+					vim.lsp.config.svelte.setup({
 						capabilities = capabilities,
 						filetypes = { "svelte" },
-						root_dir = lspconfig.util.root_pattern("package.json", "svelte.config.js", ".git"),
+						root_dir = vim.lsp.config.util.root_pattern("package.json", "svelte.config.js", ".git"),
 					})
 				end,
 
 				["angularls"] = function()
-					local lspconfig = require("lspconfig")
-					lspconfig.angularls.setup({
+					vim.lsp.config.angularls.setup({
 						capabilities = capabilities,
-						root_dir = lspconfig.util.root_pattern("angular.json", "package.json", ".git"),
+						root_dir = vim.lsp.config.util.root_pattern("angular.json", "package.json", ".git"),
 					})
 				end,
 			},
@@ -155,9 +149,9 @@ return {
 		-- Add related information to diagnostics
 		local original = vim.lsp.handlers["textDocument/publishDiagnostics"]
 		vim.lsp.handlers["textDocument/publishDiagnostics"] = function(_, result, ctx, config)
-			vim.tbl_map(function(item)
+			for _, item in ipairs(result.diagnostics) do
 				if item.relatedInformation and #item.relatedInformation > 0 then
-					vim.tbl_map(function(k)
+					for _, k in ipairs(item.relatedInformation) do
 						if k.location then
 							local tail = vim.fn.fnamemodify(vim.uri_to_fname(k.location.uri), ":t")
 							k.message = tail
@@ -180,9 +174,9 @@ return {
 							end
 						end
 						item.message = item.message .. "\n\n" .. k.message
-					end, item.relatedInformation)
+					end
 				end
-			end, result.diagnostics)
+			end
 			original(_, result, ctx, config)
 		end
 
@@ -194,7 +188,7 @@ return {
 		vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
 		vim.keymap.set("n", "<leader>gD", vim.lsp.buf.declaration, {})
 		vim.keymap.set("n", "<leader>gr", "<cmd>FzfLua lsp_references<CR>", {})
-		vim.keymap.set("n", "<leader>ca",  "<cmd>FzfLua lsp_code_actions<CR>", {})
+		vim.keymap.set("n", "<leader>ca", "<cmd>FzfLua lsp_code_actions<CR>", {})
 
 		vim.keymap.set("n", "<leader>gi", vim.lsp.buf.implementation, {})
 
