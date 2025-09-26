@@ -44,6 +44,9 @@ return {
 			vim.keymap.set("n", "<leader>fg", fzf.live_grep, {})
 			vim.keymap.set("n", "<leader>fm", fzf.marks, {})
 			vim.keymap.set("n", "<leader>gs", fzf.git_status, {})
+			vim.keymap.set("n", "<leader>gq", function()
+				require("fzf-lua").live_grep({ actions = { ["default"] = require("fzf-lua").actions.file_edit_or_qf } })
+			end, { desc = "Live grep into quickfix" })
 		end,
 	},
 }
