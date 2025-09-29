@@ -11,6 +11,7 @@ font-size = 14
 # macos-titlebar-style = transparent
 unfocused-split-opacity = 0.5
 font-family = "IBM Plex Mono"
+font-style = Medium
 font-feature = -calt
 # macos-icon = official
 macos-icon = xray
