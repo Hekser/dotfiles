@@ -66,3 +66,13 @@ end, { desc = "Show relative file path" })
 -- Insert new line without entering insert mode
 vim.keymap.set("n", "<CR>", "m`o<Esc>``")
 vim.keymap.set("n", "<S-CR>", "m`O<Esc>``")
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "qf",
+	callback = function(args)
+		local bufnr = args.buf
+		vim.keymap.set("n", "<CR>", ":.cc<CR>", { buffer = bufnr, noremap = true, silent = true })
+		vim.keymap.set("n", "j", "j:.cc<CR><C-w>p", { buffer = bufnr, noremap = true, silent = true })
+		vim.keymap.set("n", "k", "k:.cc<CR><C-w>p", { buffer = bufnr, noremap = true, silent = true })
+	end,
+})
