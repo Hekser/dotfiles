@@ -17,7 +17,7 @@ return {
             visible = true,
             hide_dotfiles = false,
             hide_gitignored = false,
-            never_show = { ".git" },
+            never_show = { ".git", ".DS_Store" },
           },
           follow_current_file = {
             enabled = true,    -- This will find and focus the file in the active buffer every time
