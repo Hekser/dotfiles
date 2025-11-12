@@ -76,3 +76,10 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.keymap.set("n", "k", "k:.cc<CR><C-w>p", { buffer = bufnr, noremap = true, silent = true })
 	end,
 })
+
+vim.keymap.set(
+	"x",
+	"<leader>r",
+	'"zy:%s/\\V<C-R>z//gc<Left><Left><Left>',
+	{ noremap = true, silent = false, desc = "Interactive replace selection" }
+)
